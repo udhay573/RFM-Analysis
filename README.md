@@ -1,44 +1,54 @@
-📊 RFM Analysis
+📊 RFM Customer Segmentation 
+
+
 
 🔍 Overview
-This project applies RFM (Recency, Frequency, Monetary) analysis on e-commerce data to segment customers and suggest marketing strategies.
+Segmented customers using RFM (Recency, Frequency, Monetary) analysis on an online retail dataset to identify and target key customer groups.
 
-🧹 Data Summary
+📁 Dataset
+Source: UCI Online Retail Dataset
+
+Period: Dec 2010 – Dec 2011
+
 Initial Rows: 541,909 → Cleaned: 392,732
 
-Removed missing CustomerID, duplicate rows, and canceled orders.
+Removed: Missing CustomerID, Description, returns (Quantity < 0), duplicates
 
-📊 Clustering
-Method: K-Means
+📊 RFM Summary
+Metric	Meaning
+Recency: Days since last purchase
+Frequency	Total purchases
+Monetary	Total spent by the customer
 
-Optimal Clusters: 3 (via Elbow & Silhouette)
+Clustering: K-Means, optimal clusters = 3 (via Elbow & Silhouette)
 
-Segments:
-Cluster 0: Low activity, low spenders
+Cluster Profiles
+Cluster	Recency	Frequency	Monetary	Description
+0	247	1.6	630	Inactive, low-value
+1	6	66.5	85,826	High-value, loyal
+2	41	4.7	1,849	Moderate engagement
 
-Cluster 1: High-value frequent buyers
+🎯 Segments & Strategies
+Segment	Count	Strategy
+Best Customers	1809	Rewards, exclusives
+Big Spenders	360	Upselling, premium offers
+At Risk	480	Reactivation campaigns
+Loyal Customers	360	Membership perks
+Lost Cheap	1330	Light nudges, low-cost offers
 
-Cluster 2: Moderately active and spending customers
+📈 Visuals & Tools
+Charts: Boxplots, scatter plots, RFM heatmap
 
-🎯 Marketing Strategy
-Segment	Strategy
-Cluster 0	Reactivation, personalized deals
-Cluster 1	VIP rewards, upselling
-Cluster 2	Loyalty programs, targeted promos
+Tools: pandas, numpy, matplotlib, seaborn, sklearn
 
-📌 Insights
-Top Product: Regency Cakestand 3 Tier
+✅ Outcome
+Identified key customer groups for targeted marketing
 
-Peak Time: Wednesdays @ 12 PM
+Prioritized retention for top customers and reactivation for at-risk ones
 
-Most Orders: UK, Germany, France
+📌 Future Work
+Add demographics, behavioral data
 
-Return Rate: 16.47%
+Automate segmentation updates
 
-🚫 Limitations
-No cost or profit data
-
-No payment or feedback info
-
-✅ Conclusion
-Use RFM segments for targeted marketing, focus on reactivating at-risk users, and nurture loyal customers for sustained growth.
+Connect insights to CRM/email tools
